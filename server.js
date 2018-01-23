@@ -12,7 +12,7 @@ console.log("Server running!");
 
 app.use(express.static(__dirname + '/pages'))
 
-app.get('/dictionary/:id', function(req,res){
+app.get('/dictionary', function(req,res){
 	var something = "HVYB(S*b89";
 	return something;
 })
