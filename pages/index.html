@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel=stylesheet href=style.css>
+	</head>
+	<body>
+		<header>
+			<h1>Data Dictionary Designer</h1>
+		</header>
+		<div id=designer>
+			<aside id=functions>
+				<button id=new>New</button>
+				<button id=load>Load</button>
+				<button id=share>Share</button>
+				<button id=export>Export</button>
+				<button id=info>Info</button>
+			</aside>
+			<div id=tableContainer>
+				<table id=dictionaryTable>
+					<tr id=tableName>
+						<th colspan=6>Table name:<input type=text></th>
+					</tr>
+					<tr id=tableHeader>
+						<th>Key</th>
+						<th>Field name</th>
+						<th>Data type</th>
+						<th>Data length</th>
+						<th>Constraints</th>
+						<th>Description</th>
+					</tr>
+					<tr>
+						<td><select>
+							<option value=PK>PK
+							<option value=FK>FK
+							<option value=CPK>CPK
+							<option value=none>
+						</select></td>
+						<td><input type=text name=field></td>
+						<td><select>
+							<option value=varchar>varchar
+							<option value=int>Integer
+							<option value=decimal>Decimal
+						</select></td>
+						<td><input type=text name=typeLength></td>
+						<td><input type=text name=constraint></td>
+						<td><input type=text name=description></td>
+					</tr>
+					<tr>
+						<td colspan=1><button id=newRow>New row</button></td>
+					</tr>
+				</table>
+			</div>
+			<aside id=list>
+				<h2>Tables:</h2>
+				<ul id=ddTables>
+					<li>Customer
+					<li>Product
+				</ul>
+			</aside>
+		</div>
+		<footer>
+			<p>UP771334, University of Portsmouth</p>
+		</footer>
+	</body>
+	<script src=client.js></script>
+</html>
