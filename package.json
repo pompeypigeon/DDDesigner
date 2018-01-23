@@ -1,0 +1,24 @@
+{
+  "name": "dddesigner",
+  "version": "1.0.0",
+  "description": "A passive data dictionary designer web application.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pompeypigeon/DDDesigner.git"
+  },
+  "keywords": [
+    "Data",
+    "Dictionary"
+  ],
+  "author": "UP771334",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pompeypigeon/DDDesigner/issues"
+  },
+  "homepage": "https://github.com/pompeypigeon/DDDesigner#readme"
+}
