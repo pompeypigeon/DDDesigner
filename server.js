@@ -1,16 +1,17 @@
 const 	url = require('url')
-		express = require('express'),
-		app = express(),
-		server = require('http').Server(app),
-		io = require('socket.io').listen(server),
-		port = process.env.PORT || 8080;
+				express = require('express'),
+				app = express(),
+				server = require('http').Server(app),
+				io = require('socket.io').listen(server),
+				port = process.env.PORT || 8080;
 
 server.listen(port, function(){
 	console.log("on port "+ port);
 })
+
 console.log("Server running!");
 
-app.use(express.static(__dirname + '/pages'))
+app.use(express.static(__dirname + '/static'))
 
 app.get('/dictionary', function(req,res){
 	var something = "HVYB(S*b89";
@@ -18,5 +19,5 @@ app.get('/dictionary', function(req,res){
 })
 
 app.get('/', function(req,res){
-	res.sendFile(__dirname, '/pages/index.html');
+	res.sendFile(__dirname, '/static/index.html');
 })
