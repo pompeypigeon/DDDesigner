@@ -14,8 +14,9 @@ app.use(express.static(__dirname + '/pages'))
 
 app.get('/dictionary', function(req,res){
 	var something = "HVYB(S*b89";
-	return something;
+	res.send(something);
 })
+
 
 app.get('/', function(req,res){
 	res.sendFile(__dirname, '/pages/index.html');
