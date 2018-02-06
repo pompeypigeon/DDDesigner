@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/pompeypigeon/DDDesigner/issues"
   },
-  "homepage": "https://github.com/pompeypigeon/DDDesigner#readme"
+  "homepage": "https://github.com/pompeypigeon/DDDesigner#readme",
+  "dependencies": {
+    "mysql2": "^1.5.1"
+  }
 }
