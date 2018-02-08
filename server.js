@@ -15,9 +15,7 @@ const mysql = require('mysql'),
 				database: 'datadictionary'
 			});
 
-server.listen(port, function(){
-	console.log('Running on '+ port);
-});
+
 
 conn.connect(function(err){
 	if(err){
@@ -27,4 +25,25 @@ conn.connect(function(err){
 	console.log('Connection to database established');
 })
 
+app.get('/', function(req,res){
+	res.sendFile(__dirname + '/static/index.html');
+});
+
+io.on('connection', function(socket){
+	console.log("New user: " + socket);
+
+	socket.on('disconnect', function(){
+		console.log("User disconnected");
+	})
+
+	socket.on('create', function(room){
+		socket.join(room);
+		console.log(room);
+	})
+})
+
 app.use(express.static(__dirname + '/static'));
+
+server.listen(port, function(){
+	console.log('Running on '+ port);
+});

@@ -24,7 +24,7 @@ create table if not exists Collaboration(
 
 create table if not exists Message(
 	dictionaryID varchar(10),
-	messageID varchar(10), 
+	messageID varchar(10),
 	userID varchar(10) not null,
 	message longtext not null,
 	timeSent datetime not null,
@@ -33,18 +33,14 @@ create table if not exists Message(
 	constraint foreign key userID references EndUser(userID)
 ) engine=InnoDB;
 
-create table if not exists DDTable(
+/*create table if not exists DDTable(
 	tableID int,
 	dictionaryID varchar(10),
 	tableName varchar(64) not null,
 	primary key(dictionaryID, tableID),
 	constraint foreign key dictionaryID references DataDictionary(dictionaryID)
-) engine=InnoDB;
+) engine=InnoDB;*/
 
 create table if not exists DDField(
-
-) engine=InnoDB;
- 
-createTable if not exists DDFieldConstraint(
 
 ) engine=InnoDB;
