@@ -37,9 +37,9 @@ app.post('/user/:id', addNewUser);
 app.delete('/user/:id', removeUser);
 
 //collaboration
-app.get('dictionary/collab', getAllCollabs);
-app.post('dictionary/collab/user/:id', addToCollab);
-app.delete('dictionary/collab/user/:id', removeFromCollab)
+app.get('dictionary/:dictID/collab', getAllCollabs);
+app.post('dictionary/:dictID/collab/user/:userID', addToCollab);
+app.delete('dictionary/:dictID/collab/user/:userID', removeFromCollab)
 
 function getDictionary(){
 	var test = {"title": "TestWorked"}
@@ -48,6 +48,26 @@ function getDictionary(){
 
 function getUser(){
 	res.send("Get user" + req.params.id)
+}
+
+function addUser(){
+	res.send("Add user" + req.params.id)
+}
+
+function removeUser(){
+	res.send("Remove user" + req.params.id)
+}
+
+function getAllCollabs(){
+	res.send("All collabs for " + req.params.dictID + " will be listed")
+}
+
+function addToCollab(){
+	res.send("User " + req.params.userID + " will be added to dictionary with ID " + req.params.dictID)
+}
+
+function removeFromCollab(){
+	res.send("User " + req.params.userID + " will be removed from dictionary with ID " + req.params.dictID)
 }
 //socket functions
 io.on('connection', function(socket){
