@@ -44,6 +44,11 @@ app.delete('dictionary/collab/user/:id', removeFromCollab)
 function getDictionary(){
 	var test = {"title": "TestWorked"}
 	return test;
+}
+
+function getUser(){
+	res.send("Get user" + req.params.id)
+}
 //socket functions
 io.on('connection', function(socket){
 	console.log("New user: " + socket);
