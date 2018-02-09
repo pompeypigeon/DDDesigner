@@ -1,6 +1,7 @@
 'use strict'
 //server
-const	express = require('express'),
+const	bodyparser = require('body-parser'),
+			express = require('express'),
 			app = express(),
 			server = require('http').Server(app),
 			io = require('socket.io').listen(server),
@@ -15,8 +16,6 @@ const mysql = require('mysql'),
 				database: 'datadictionary'
 			});
 
-
-
 conn.connect(function(err){
 	if(err){
 		console.log('No connecttion', err.errorno, err.fatal);
@@ -29,6 +28,23 @@ app.get('/', function(req,res){
 	res.sendFile(__dirname + '/static/index.html');
 });
 
+//dictionary
+app.get('/dictionary/:id', getDictionary);
+
+//users
+app.get('/user/:id', getUser);
+app.post('/user/:id', addNewUser);
+app.delete('/user/:id', removeUser);
+
+//collaboration
+app.get('dictionary/collab', getAllCollabs);
+app.post('dictionary/collab/user/:id', addToCollab);
+app.delete('dictionary/collab/user/:id', removeFromCollab)
+
+function getDictionary(){
+	var test = {"title": "TestWorked"}
+	return test;
+//socket functions
 io.on('connection', function(socket){
 	console.log("New user: " + socket);
 
