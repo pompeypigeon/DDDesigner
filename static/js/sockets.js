@@ -1,4 +1,4 @@
-var socket = io();
+/*var socket = io();
 
 document.querySelector('#new').addEventListener('click', sendNewRoom);
 
@@ -9,3 +9,4 @@ function sendNewRoom(){
 function randomRoomID(){
   return Math.Floor(Math.Random()*1000);
 }
+*/
