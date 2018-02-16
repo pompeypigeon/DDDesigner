@@ -2,7 +2,7 @@
 
 
 //server
-const	birds = require('./routes/dictionary.js/'),
+const	dictionary = require('/routes/dictionary'),
 			bodyparser = require('body-parser'),
 			url = require('url'),
 			express = require('express'),
@@ -34,9 +34,6 @@ app.get('/', function(req,res){
 
 app.use('/dictionary', dictionary);
 
-//dictionary
-
-
 //users
 app.get('/user/:id', getUser);
 app.post('/user/:id', addNewUser);
@@ -46,8 +43,6 @@ app.delete('/user/:id', removeUser);
 app.get('dictionary/:dictID/collab', getAllCollabs);
 app.post('dictionary/:dictID/collab/user/:userID', addToCollab);
 app.delete('dictionary/:dictID/collab/user/:userID', removeFromCollab)
-
-
 
 function getUser(req,res){
 	res.send("Get user" + req.params.id)
