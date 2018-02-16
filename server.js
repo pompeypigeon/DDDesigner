@@ -1,6 +1,9 @@
 'use strict'
+
+
 //server
-const	bodyparser = require('body-parser'),
+const	dictionary = require('/routes/dictionary'),
+			bodyparser = require('body-parser'),
 			url = require('url'),
 			express = require('express'),
 			app = express(),
@@ -29,10 +32,7 @@ app.get('/', function(req,res){
 	res.sendFile(__dirname + '/static/index.html');
 });
 
-//dictionary
-app.get('/dictionary/:id', getDictionary);
-app.get('/dictionary/:id/tables', getDictTables);
-app.get('/dictionary/:id/tables/:name', getFieldsFromTable);
+app.use('/dictionary', dictionary);
 
 //users
 app.get('/user/:id', getUser);
@@ -43,33 +43,6 @@ app.delete('/user/:id', removeUser);
 app.get('dictionary/:dictID/collab', getAllCollabs);
 app.post('dictionary/:dictID/collab/user/:userID', addToCollab);
 app.delete('dictionary/:dictID/collab/user/:userID', removeFromCollab)
-
-function getDictionary(req,res){
-	var query = "Select * from Dictionary where dictID = " +
-	req.params.id + ";"
-	conn.query(query, function(err, result, fields){
-		if (err) throw err;
-		res.send(JSON.stringify(result));
-	});
-}
-
-function getDictTables(req, res){
-	var query = 'Select tableName from DDTable where dictID = ' +
-	req.params.id + ' group by tableName;'
-	conn.query(query, function(err, result, fields){
-		if (err) throw err;
-		res.send(JSON.stringify(result);
-	});
-}
-
-function getFieldsFromTable(req, res){
-	var query = 'Select attributeName from TableAttribute where dictID = ' +
-	req.params.id + ' and tableName = ' + req.params.name + ';'
-	conn.query(query, function(err, result, fields){
-		if (err) throw err;
-		res.send(JSON.stringify(result));
-	});
-}
 
 function getUser(req,res){
 	res.send("Get user" + req.params.id)
