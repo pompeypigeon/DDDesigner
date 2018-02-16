@@ -6,6 +6,9 @@ create table if not exists DataDictionary(
 	dateCreated		datetime	not null,
 	version			varchar(20)
 ) engine=InnoDB;
+	/*need to add:
+		openToPublic bit not null
+	*/
 
 create table if not exists EndUser(
 	userID		 varchar(10)  primary key,
@@ -46,16 +49,17 @@ create table if not exists TableAttribute (
 	primary key(attributeName, tableName, dictID)
 ) engine=InnoDB;
 
-create table if not exists TableField(
-	fieldName varchar(64),
-	tableName varchar(64),
-	dataType varchar(40) not null,
-	dataTypeLength varchar(20),
-	description varchar(100),
-	dictID varchar(10) not null,
-	primary key(fieldName, tableName, dictID),
-	constraint foreign key (dictID) references Dictionary(dictID)
-) engine=InnoDB;
+/*Add to TableAtttribute:
+	dataType
+	dataTypeLength
+	primaryKey bit not null
+	foreignKey bit not null
+	fkTable varchar(64)
+	fkAttr varchar(64)
+	Nullable bit not null
+	defaultValue varchar(?)
+	description
+	*/
 
 insert into DDTable values ("Customer", "8212");
 insert into DDTable values ("Product", "8212");

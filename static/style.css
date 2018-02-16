@@ -3,7 +3,7 @@ body{
 }
 
 #tableContainer, #list, #functions{
-	border: black 1px solid; 
+	border: black 1px solid;
 	position: relative;
 }
 
@@ -53,7 +53,7 @@ body{
 }
 
 #list h2{
-	margin-left: 1em;	
+	margin-left: 1em;
 }
 
 #list ul{
@@ -61,6 +61,25 @@ body{
 	margin-left: 1em;
 }
 
-#list ul li{
-	
+#constraintsPopup{
+	border: 2px solid grey;
+	border-radius: 5px;
+	width: 20em;
+	padding: 0.5em;
+}
+
+#constraintsPopup button{
+	font-size: 200%;
+}
+
+#constraintsPopup #close{
+	float: right;
+}
+
+#constraintsPopup h3{
+	background-color: Linen;s
+}
+
+#constraintsPopup #rejectCon{
+	float: right;
 }

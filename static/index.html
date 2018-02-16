@@ -16,6 +16,7 @@
 				<button id=info>Info</button>
 			</aside>
 			<div id=tableContainer>
+				<h2 id=dbName>DB Name here</h2>
 				<table id=dictionaryTable>
 					<tr id=tableName>
 						<th colspan=6>Table name:<input type=text></th>
@@ -53,6 +54,22 @@
 		</div>
 		<footer>
 			<p>UP771334, University of Portsmouth</p>
+			<div id=constraintsPopup>
+				<button id=close>X</button>
+				<h3>Constraints for <span id=constraintsForFieldName></span></h3>
+				<p>Primary key? <input id=pk type=checkbox></p>
+				<p>Foreign key? <input id=fk type=checkbox></p>
+				<p> Table: <select id=fkTable>
+											<option>Test1</option>
+										</select>
+						Field: <select id=fkAttr>
+											<option>Test1</option>
+										</select>
+				</p>
+				<p>Nullable? <input id=nullable type=checkbox></p>
+				<p>Default value? <input id=defaultVal></p>
+				<p><button id=acceptCon>Accept</button><button id=rejectCon>Reject</button></p>
+			</div>
 		</footer>
 	</body>
 	<!--<script src=socket.io/socket.io.js></script>-->

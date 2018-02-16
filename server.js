@@ -31,11 +31,12 @@ app.get('/', function(req,res){
 	res.sendFile(__dirname + '/static/index.html');
 });
 
+//=== Add these to separate routers when ready
+
+//dictionary
 app.get('/dictionary/:id', getDictionary);
 app.get('/dictionary/:id/tables', getDictTables);
 app.get('/dictionary/:id/tables/:name', getFieldsFromTable);
-
-
 
 //users
 app.get('/user/:id', getUser);
@@ -74,7 +75,6 @@ function getFieldsFromTable(req, res){
 		res.send(JSON.stringify(result));
 	});
 }
-
 
 function getUser(req,res){
 	res.send("Get user" + req.params.id)
