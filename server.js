@@ -1,8 +1,6 @@
 'use strict'
-
-
-//server
-const	bodyparser = require('body-parser'),
+const	view = require('./view'),
+			bodyparser = require('body-parser'),
 			url = require('url'),
 			express = require('express'),
 			app = express(),
@@ -38,6 +36,7 @@ app.get('/dictionary/:id', getDictionary);
 app.get('/dictionary/:id/tables', getDictTables);
 app.get('/dictionary/:id/tables/:name', getFieldsFromTable);
 
+app.use('/view', view);
 //users
 app.get('/user/:id', getUser);
 app.post('/user/:id', addNewUser);
@@ -63,7 +62,7 @@ function getDictTables(req, res){
 	req.params.id + ' group by tableName;'
 	conn.query(query, function(err, result, fields){
 		if (err) throw err;
-		res.send(JSON.stringify(result);
+		res.send(JSON.stringify(result));
 	});
 }
 
