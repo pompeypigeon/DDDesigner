@@ -61,25 +61,30 @@ body{
 	margin-left: 1em;
 }
 
-#constraintsPopup{
+.popup{
+	display: block;
 	border: 2px solid grey;
 	border-radius: 5px;
 	width: 20em;
 	padding: 0.5em;
 }
 
-#constraintsPopup button{
+.popup button{
 	font-size: 200%;
 }
 
-#constraintsPopup #close{
+.popup #close{
 	float: right;
 }
 
-#constraintsPopup h3{
-	background-color: Linen;s
+.popup h3{
+	background-color: Linen;
 }
 
-#constraintsPopup #rejectCon{
+#constraints #rejectCon{
 	float: right;
+}
+
+#constraints, #newDD, #loadDD{
+	display: none;
 }

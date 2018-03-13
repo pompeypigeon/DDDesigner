@@ -33,9 +33,9 @@ app.get('/', function(req,res){
 
 //dictionary
 app.get('/dictionary/:id', getDictionary);
+app.get('/dictionary/:id/sql', generateSQLCode);
 app.get('/dictionary/:id/tables', getDictTables);
 app.get('/dictionary/:id/tables/:name', getFieldsFromTable);
-
 app.use('/view', view);
 //users
 app.get('/user/:id', getUser);
@@ -55,6 +55,20 @@ function getDictionary(req,res){
 		if (err) throw err;
 		res.send(JSON.stringify(result));
 	});
+}
+
+function generateSQLCode(){
+  var sqlCode = "";
+  for(var i = 0; i < tables.length; i++){
+    sqlCode += "create table if not exists " + tables[i] + " (";
+    for(var j = 0; j < fields.length; j++){
+      if(fields[j].table == tables[i]){
+        return true;
+      }
+    sqlCode += "); "
+    }
+  }
+  return sqlCode;
 }
 
 function getDictTables(req, res){

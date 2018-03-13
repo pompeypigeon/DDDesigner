@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
+
 		<link rel=stylesheet href=style.css>
 	</head>
 	<body>
@@ -12,6 +13,7 @@
 				<button id=new>New</button>
 				<button id=load>Load</button>
 				<button id=share>Share</button>
+				<button id=import>Import</button>
 				<button id=export>Export</button>
 				<button id=info>Info</button>
 			</aside>
@@ -31,12 +33,37 @@
 					<tr>
 						<td><input type=text name=field></td>
 						<td><select>
-							<option value=varchar>varchar
-							<option value=int>Integer
-							<option value=decimal>Decimal
+							<option value=tinyint>TINYINT
+							<option value=smallint>SMALLINT
+							<option value=mediumint>MEDIUMINT
+							<option value=int>INT
+							<option value=big>BIGINT
+							<option value=float>FLOAT
+							<option value=double>DOUBLE
+							<option value=decimal>DECIMAL
+							<option value=bit>BIT
+							<option value=char>CHAR
+							<option value=varchar>VARCHAR
+							<option value=tinyint>TINYTEXT
+							<option value=text>TEXT
+							<option value=mediumtext>MEDIUMTEXT
+							<option value=longtext>LONGTEXT
+							<option value=binary>BINARY
+							<option value=varbinary>VARBINARY
+							<option value=tinyblob>TINYBLOB
+							<option value=blob>BLOB
+							<option value=mediumblob>MEDIUMBLOB
+							<option value=longblob>LONGBLOB
+							<option value=enum>ENUM
+							<option value=set>SET
+							<option value=date>DATE
+							<option value=datetime>DATETIME
+							<option value=time>TIME
+							<option value=timestamp>TIMESTAMP
+							<option value=year>YEAR
 						</select></td>
 						<td><input type=text name=typeLength></td>
-						<td><input type=text name=constraint></td>
+						<td><button id=showConstraint>Show constraints</button></td>
 						<td><input type=text name=description></td>
 					</tr>
 					<tr>
@@ -46,30 +73,47 @@
 			</div>
 			<aside id=list>
 				<h2>Tables:</h2>
-				<ul id=ddTables>
-					<li>Customer
-					<li>Product
-				</ul>
+				<ul id=ddTables></ul>
 			</aside>
 		</div>
 		<footer>
 			<p>UP771334, University of Portsmouth</p>
-			<div id=constraintsPopup>
+
+			<div id=constraints class=popup>
 				<button id=close>X</button>
 				<h3>Constraints for <span id=constraintsForFieldName></span></h3>
 				<p>Primary key? <input id=pk type=checkbox></p>
 				<p>Foreign key? <input id=fk type=checkbox></p>
-				<p> Table: <select id=fkTable>
-											<option>Test1</option>
-										</select>
-						Field: <select id=fkAttr>
-											<option>Test1</option>
-										</select>
+				<p> Table: <select id=fkTable></select>
+						Field: <select id=fkAttr></select>
 				</p>
 				<p>Nullable? <input id=nullable type=checkbox></p>
 				<p>Default value? <input id=defaultVal></p>
-				<p><button id=acceptCon>Accept</button><button id=rejectCon>Reject</button></p>
+				<p><button id=acceptCon>Accept</button><button id=cancel>Cancel</button></p>
 			</div>
+
+			<div id=newDD class=popup>
+				<button id=close>X</button>
+				<h3>Create new dictionary</h3>
+				<p>What is the databases's name? :<input id=newDBName></p>
+				<p>Want to add any tables now? Insert table names separated by a comma</p>
+				<p>eg. Customer,Product,Newspaper</p>
+				<input id=existingTables>
+				<p>Want to make the dictionary public? Tick the box to do so. (They are private by default) <input id=publicDD type=checkbox></p>
+				<p><button id=createDD>Accept</button><button id=cancel>Cancel</button></p>
+			</div>
+
+			<div id=loadDD class=popup>
+				<button id=close>X</button>
+				<h3>Load an existing dictionary</h3>
+				<p>Select one of your dictionaries:</p>
+				<select id=myDDs></select>
+				<p>Or, select one you are collaborating in:</p>
+				<select id=collabDDs></select>
+				<p><button id=loadDDToPage>Accept</button><button id=cancel>Cancel</button></p>
+			</div>
+
+
 		</footer>
 	</body>
 	<!--<script src=socket.io/socket.io.js></script>-->

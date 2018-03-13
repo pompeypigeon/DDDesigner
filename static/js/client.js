@@ -1,14 +1,25 @@
 'use strict'
-var url = window.location.href,
-    socket = io();
+var url = window.location.href;
 
 //query selectors
-document.querySelector('#load').addEventListener('click', getDictionary);
+document.querySelector('#new').addEventListener('click', showNewDDpopup);
 
-
-function getDictionary(){
-  var promised = new Promise(() => {})
+function showNewDDpopup(){
+  
 }
+
+function showLoadDDpopup(){
+  console.log("HKL")
+}
+
+function showConstraintPopup(){
+  console.log("HKLs");
+}
+/*
+* tables = array of table names eg ["Product", "Customer"]
+* fields = JSON object
+*/
+
 /*
 Functions I need
 
